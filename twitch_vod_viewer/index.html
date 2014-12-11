@@ -38,14 +38,17 @@
 	<div align="center" data-role="header">
 		<h1>Home</h1>
 		<div class="ui-btn-left">
-			<a data-mini="true"data-role="button" data-icon="grid" data-iconpos="notext" href="#panel_main"></a>
+			<a data-mini="true"data-role="button" data-icon="grid" data-iconpos="notext" href="#panel_main">&nbsp;</a>
 		</div>
 	</div>
 	<div data-role="panel" id="panel_main" data-display="reveal" data-theme="a" data-position="left">
 		<h1>Side Panel</h1>
-		<a class="ui-btn-right" href="#page_main" data-rel="close" data-role="button" data-icon="delete" data-iconpos="notext"></a>
+		<a class="ui-btn-right" href="#page_main" data-rel="close" data-role="button" data-icon="delete" data-iconpos="notext">&nbsp;</a>
 	</div>
 	<div role="main" class="ui-content">
+		<div>
+			<object bgcolor='#000000' data='http://www.twitch.tv/widgets/archive_embed_player.swf' height='378' id='clip_embed_player_flash' type='application/x-shockwave-flash' width='620'><param name='movie' value='http://www.twitch.tv/widgets/archive_embed_player.swf' /><param name='allowScriptAccess' value='always' /><param name='allowNetworking' value='all' /><param name='allowFullScreen' value='true' /><param name='flashvars' value='channel=tsm_chaox&start_volume=25&auto_play=false&chapter_id=1353487' /></object>
+		</div>
 		<div>
 			<form onSubmit="doSearch()">
 				<input type="search" id="searchText" placeholder="Search"/>
@@ -54,9 +57,18 @@
 		<ul data-role="listview" data-inset="true" class="game-list">
 			<li ng-repeat="game in games">
 				<a href="#">
-					<strong>Game: </strong>{{game.game.name}}<br/>
-					<strong>Viewers: </strong>{{game.viewers}}<br/>
-					<strong>Channels: </strong>{{game.channels}}<br/>
+					<table>
+						<tr>
+							<td>
+								<img src="{{game.game.box.small}}" />
+							</td>
+							<td>
+								<strong>Game: </strong>{{game.game.name}}<br/>
+								<strong>Viewers: </strong>{{game.viewers}}<br/>
+								<strong>Channels: </strong>{{game.channels}}<br/>
+							</td>
+						</tr>
+					</table>
 				</a>
 			</li>
 		</ul>
