@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="twitch-vod-viewer">
+<head>
+	
+	<title>Title</title>
+	
+	<!-- Don't detect phone numbers -->
+	<meta name="format-detection" content="telephone=no">
+	<!-- Show in mobile looking size -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, height=device-height">
+	
+	<!-- Import jQuery Mobile resources -->
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.4.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="js/jquery-1.11.1.js"></script>
+	<script src="js/jquery.mobile-1.4.4.js"></script>
+	<script src="js/angular.js"></script>
+	<script src="js/angular-resource.js"></script>
+	<script src="js/scripts.js"></script>
+    <script src="src/controllers.js"></script>
+	
+	<script>
+		//Extra loading
+		$(document).ready(function(){
+			//Load top games
+			
+		});
+		
+		//Functions
+		
+	</script>
+</head>
+
+
+<body ng-controller="MainController">
+
+<!-- Main Page -->
+<div data-role="page" id="page_main">
+	<div align="center" data-role="header">
+		<h1>Home</h1>
+		<div class="ui-btn-left">
+			<a data-mini="true"data-role="button" data-icon="grid" data-iconpos="notext" href="#panel_main"></a>
+		</div>
+	</div>
+	<div data-role="panel" id="panel_main" data-display="reveal" data-theme="a" data-position="left">
+		<h1>Side Panel</h1>
+		<a class="ui-btn-right" href="#page_main" data-rel="close" data-role="button" data-icon="delete" data-iconpos="notext"></a>
+	</div>
+	<div role="main" class="ui-content">
+		<div>
+			<form onSubmit="doSearch()">
+				<input type="search" id="searchText" placeholder="Search"/>
+			</form>
+		</div>
+		<ul data-role="listview" data-inset="true" class="game-list">
+			<li ng-repeat="game in games">
+				<a href="#">
+					<strong>Game: </strong>{{game.game.name}}<br/>
+					<strong>Viewers: </strong>{{game.viewers}}<br/>
+					<strong>Channels: </strong>{{game.channels}}<br/>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<!-- Watch video page -->
+<div data-role="page" id="page_video">
+	<div data-role="header">
+		<h1>Video</h1>
+	</div>
+	<div role="main">
+		<div>
+			<form onSubmit="loadVideo()">
+				<input type="search" id="video_url" placeholder="Video URL" />
+			</form>
+		</div>
+		<div>
+			
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>
